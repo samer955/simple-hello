@@ -13,16 +13,20 @@ env:
 jobs:
   Testing:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
 
-      - name: Use Golang Build Action
-        uses: samer955/simple-hello/.github/workflows/golang-build.yaml
-        with:
-          go-version: '1.21'
-          working-directory: ./
+    - name: Setup Golang
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    
+    - name: Build Code
+      run: go build -v ./...
+
+    - name: Test Code
+      run: go test -v ./...
 
   BUILD_AND_PUBLISH:
     needs: Testing
