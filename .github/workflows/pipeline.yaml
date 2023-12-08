@@ -7,10 +7,11 @@ on:
 env:
   AWS_REGION: eu-central-1
   ECR_REPOSITORY: test-repository
+  IMAGE_TAG: ${{ github.sha }}
   
 
 jobs:
-  Build:
+  Testing:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -26,5 +27,31 @@ jobs:
 
     - name: Test Code
       run: go test -v ./...
+
+  BUILD_AND_PUBLISH:
+  needs: Testing
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
+      with:
+        role-to-assume: ${{ secrets.AWS_ARN }}
+        aws-region: aws-region-1
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+
+    - name: Build, tag, and push docker image to Amazon ECR
+      run: |
+        docker build -t $REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+
+
+
     
 
