@@ -15,7 +15,7 @@ jobs:
       uses: ./.github/workflows/golang-build.yaml
       with:
         go-version: '1.21'
-        working-directory: .
+        working-directory: ./...
 
   BUILD_AND_PUBLISH:
     needs: Testing
