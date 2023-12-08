@@ -29,7 +29,7 @@ jobs:
       run: go test -v ./...
 
   BUILD_AND_PUBLISH:
-  needs: Testing
+    needs: Testing
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout repo
