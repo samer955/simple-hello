@@ -1,0 +1,32 @@
+name: Reusable Golang Build Workflow
+
+on:
+  workflow_call:
+    inputs:
+      go-version:
+        required: true
+        type: string
+      working-directory:
+        required: true
+        type: string  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '${{ inputs.go-version }}'
+
+      - name: Build
+        run: go build -v ./...
+        working-directory: ${{ inputs.working-directory }}
+
+      - name: Test Code
+        run: go test -v ./...
+        working-directory: ${{ inputs.working-directory }}
