@@ -31,7 +31,11 @@ jobs:
   BUILD_AND_PUBLISH:
     needs: Testing
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+    
+    - name: Code checkout
+      uses: actions/checkout@v4
+    
     - name: upload image to ECR
       uses: appleboy/docker-ecr-action@master
       with:
