@@ -12,13 +12,7 @@ env:
 
 jobs:
   Testing:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: Setup Golang
-      uses: ./workflows/golang-build.yaml
+      uses: ./.github/workflows/golang-build.yaml
       with:
         go-version: '1.21'
         working-directory: ./...
