@@ -1,4 +1,4 @@
-name: pipeline
+name: pipeline aws
 
 on:
   push:
