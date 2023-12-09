@@ -55,6 +55,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Code checkout
+      uses: actions/checkout@v4
+
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
