@@ -10,4 +10,6 @@ RUN go build -o app
 
 RUN chmod +x app
 
+ENV HELLO="World v1"
+
 CMD [ "./app" ]

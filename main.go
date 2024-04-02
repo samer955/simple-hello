@@ -4,10 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1> Hello Alex!!!!! </h1>")
+	helloEnv := os.Getenv("HELLO")
+	if helloEnv == "" {
+		helloEnv = "World"
+	}
+	message := fmt.Sprintf("<h1> Hello %s </h1>", helloEnv)
+	fmt.Fprintf(w, message)
 }
 
 func main() {
