@@ -9,7 +9,7 @@ image:
   tag: "v1"
 
 env:
-  helloEnv: "HelmChart from Prod values"
+  helloEnv: ""
 
 service:
   type: ClusterIP
