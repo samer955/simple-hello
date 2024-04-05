@@ -23,7 +23,7 @@ spec:
         name: {{ .Chart.Name }}
         env:
         - name: HELLO
-          value: {{ .Values.env.helloEnv }}
+          value: "test from manifest" #{{ .Values.env.helloEnv }}
         ports:
         - containerPort: 8080
         resources: {}
