@@ -1,0 +1,6 @@
+dependencies:
+- name: hello-world
+  repository: http://localhost:8081/repository/myhelmrepo/
+  version: 0.1.0
+digest: sha256:03279ba0879a0f5846c59cc2d031b92dda53d710cfa914b5ec983d765aa8bfaf
+generated: "2024-04-09T16:39:24.301055+02:00"
