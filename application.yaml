@@ -21,3 +21,27 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nexus-secret
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: helm
+  url: https://localhost:8443/repository/myhelmrepo/
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nexus-secret-creds
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repo-creds
+stringData:
+  type: helm
+  url: https://localhost:8443/repository
+  password: admin
+  username: admin

@@ -7,4 +7,4 @@ appVersion: "1.16.0"
 dependencies:
   - name: hello-world
     version: "0.1.0"
-    repository: "http://localhost:8081/repository/myhelmrepo/"
+    repository: "https://localhost:8443/repository/myhelmrepo/"
