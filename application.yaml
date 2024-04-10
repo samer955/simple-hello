@@ -21,11 +21,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  podspec:
-    volumes:
-      - name: helm-cache
-        emptyDir: {}
-    initContainers:
-      - name: setup-helm-repo
-        image: alpine/helm:3.7.0
-        command: ["sh", "-c", "helm repo add myhelmrepo http://localhost:8081/repository/myhelmrepo/ --username=admin --password=admin"]
