@@ -1,6 +1,6 @@
 dependencies:
 - name: hello-world
-  repository: https://localhost:8443/repository/myhelmrepo/
+  repository: https://samer955.github.io/simple-hello/
   version: 0.1.0
-digest: sha256:6afa0cc43d29c36aa00923aa3f3c016b60cdc44d3a4c4a52a8cf1215c362f643
-generated: "2024-04-10T10:54:23.383566+02:00"
+digest: sha256:a59594fed5b325a5edd6eaf2ec84872614f69ae0ac7a3033785d1d331ec9ecab
+generated: "2024-04-12T12:52:05.487494+02:00"
