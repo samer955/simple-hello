@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/samer955/simple-hello.git
     path: demo-hello-chart
-    targetRevision: main
+    targetRevision: feat/test-branch
     helm:
       valueFiles:
         - values.yaml
@@ -21,18 +21,29 @@ spec:
     automated:
       prune: true
       selfHeal: true
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: myhelmrepo
+#   namespace: argocd
+#   labels:
+#     argocd.argoproj.io/secret-type: repository
+# stringData:
+#   type: helm
+#   url: https://localhost:8443/repository/myhelmrepo
+#   insecure: "true"
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: nexus-secret
+  name: helmrepo
   namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repository
 stringData:
   enableOCI: "false"
+  name: myhelmrepo
   type: helm
   url: https://localhost:8443/repository/myhelmrepo
   insecure: "true"
-  username: admin
-  password: admin
