@@ -1,6 +1,6 @@
 dependencies:
 - name: hello-world
   repository: https://samer955.github.io/simple-hello/
-  version: 0.1.0
-digest: sha256:a59594fed5b325a5edd6eaf2ec84872614f69ae0ac7a3033785d1d331ec9ecab
-generated: "2024-04-12T12:52:05.487494+02:00"
+  version: 0.2.0
+digest: sha256:7c589f01668adfa7c205c5b8c9e1e3d96f2af315acc4382ddd942104946cdc52
+generated: "2024-04-15T15:50:32.927081+02:00"
